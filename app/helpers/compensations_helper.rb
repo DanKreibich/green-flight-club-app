@@ -1,0 +1,2 @@
+module CompensationsHelper
+end

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fuel_type: MyString
+  weight_in_kg: 1
+  CO2_in_kg: 1.5
+  SAF_in_kg: 1.5
+  SAF_price_in_EUR: 1.5
+  compensation: one
+
+two:
+  fuel_type: MyString
+  weight_in_kg: 1
+  CO2_in_kg: 1.5
+  SAF_in_kg: 1.5
+  SAF_price_in_EUR: 1.5
+  compensation: two

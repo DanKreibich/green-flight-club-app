@@ -1,0 +1,9 @@
+<h1>Calculations#new</h1>
+<p>Find me in app/views/calculations/new.html.erb</p>
+<%= simple_form_for(@calculation) do |f| %>
+
+  <%= f.input :fuel_type, collection: $fuel_type_list, prompt: 'Select fuel type' %>
+  <%= f.input :weight_in_kg %>
+  <%= f.submit 'submit' %>
+<% end %>
+
