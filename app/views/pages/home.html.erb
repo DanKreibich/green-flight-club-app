@@ -1,80 +1,74 @@
-<div class="hero">
-  <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navbar w-nav">
-    <div class="container-navbar w-container">
-      <!-- images/green_flight_club_logo_white.svg     <img src="https://source.unsplash.com/random" loading="lazy" alt="" class="image-2">-->
-      <a href="index.html" aria-current="page" class="brand w-nav-brand w--current"> <%= image_tag "green_flight_club_logo_white.svg", alt: "Logo", loading: "lazy", class: "image-2" %> </a>
-      <nav role="navigation" class="nav-menu-2 w-nav-menu">
-        <a href="#about" class="nav-link w-nav-link">About</a>
-        <a href="#initiators" class="nav-link w-nav-link">Initiators</a>
-        <a href="new.html" class="nav-link right-navbar-link w-nav-link">Offset Calculator</a>
-      </nav>
-      <div class="menu-button w-nav-button">
-        <div class="icon w-icon-nav-menu"></div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-container">
-    <div class="div-block-4">
-      <div data-w-id="e4be3f11-1009-2d35-b70f-bbec10916c65" style="opacity:0" class="div-block-3">
-        <div class="div-block-2">
-          <p class="pre-heading white-transparent">Be a Pioneer</p>
-          <h1 class="hero-heading">Reduce your emissions with Sustainable Aviation Fuel</h1>
-          <p class="hero-paragraph">Find out how much CO2 your private flight has produced and get Sustainable Aviation Fuel  to offset them.</p>
-          <a href="new.html" class="hero-button w-button">Offset now</a>
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Sun Jan 10 2021 15:00:13 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="5fec50b7d93f23358bba4486" data-wf-site="5fec50b7d93f2346f2ba4485">
+<body class="body">
+  <div class="hero">
+    <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navbar w-nav">
+      <div class="container-navbar w-container">
+        <a href="index.html" aria-current="page" class="brand w-nav-brand w--current"> <%= image_tag("green_flight_club_logo_white.svg", :loading =>"lazy", :alt =>"Website Logo", :class => "image-2") %> </a>
+        <nav role="navigation" class="nav-menu-2 w-nav-menu">
+          <a href="#about" class="nav-link w-nav-link">About</a>
+          <a href="#initiators" class="nav-link w-nav-link">Initiators</a>
+          <a href="new.html" class="nav-link right-navbar-link w-nav-link">Offset Calculator</a>
+        </nav>
+        <div class="menu-button w-nav-button">
+          <div class="icon w-icon-nav-menu"></div>
         </div>
       </div>
-      <div data-w-id="da71482d-f582-17ee-0301-a4c78a5582ac" style="opacity:0" class="div-block-5"></div>
     </div>
-  </div>
-  <div class="div-block-14"></div>
-</div>
-<div class="section">
-  <div class="container">
-    <div class="relative-block">
-      <h1 id="about" class="heading">About Green Flight Club</h1>
-      <p class="landing-page-paragraph">Sustainable Aviation Fuel is the obvious solution to reduce emissions of private flights. Getting hold of it isn’t.<br> <br>Green Flight Club buys Sustainable Aviation Fuel on your behalf, injects it into commercial opreation and by this reduces your emissions.  The SAF injection is handled by Lufthansa  Innovation Hub’s <a href="http://offset-api.com" target="_blank" class="link">offset-api.com</a>.</p><img src="images/about_grid.svg" loading="lazy" style="opacity:0" data-w-id="21b7e4b7-d59c-ee6d-28a4-bb524b6efe0c" alt="" class="absolute-image">
+    <div class="hero-container">
+      <div class="div-block-4">
+        <div data-w-id="e4be3f11-1009-2d35-b70f-bbec10916c65" style="opacity:0" class="div-block-3">
+          <div class="div-block-2">
+            <p class="pre-heading white-transparent">Be a Pioneer</p>
+            <h1 class="hero-heading">Reduce your emissions with Sustainable Aviation Fuel</h1>
+            <p class="hero-paragraph">Find out how much CO2 your private flight has produced and get Sustainable Aviation Fuel  to offset them.</p>
+            <%= link_to "offset now", new_calculation_path, :class => "hero-button w-button"%>
+          </div>
+        </div>
+        <div data-w-id="da71482d-f582-17ee-0301-a4c78a5582ac" style="opacity:0" class="div-block-5"></div>
+      </div>
     </div>
+    <div class="div-block-14"></div>
   </div>
-</div>
-<div class="section grey">
-  <div class="container">
-    <div class="relative-block">
-      <h1 id="initiators">Initiated by</h1>
-      <p class="landing-page-paragraph">We believe that there are dozens of practical ways to create a sustainable future. Together we initiated one of those. If you have questions about it, write us under <a href="mailto:contact@green-flight-club.com" class="link">contact@green-flight-club.com</a>.</p>
-      <div class="cards-box">
-        <a href="https://de.linkedin.com/in/fabian-heilemann" target="_blank" class="card first-card w-inline-block">
-          <div>
-            <%= image_tag "Fabian-Heilemann-min.jpg", alt: "Fabian Heilemann", loading: "lazy", sizes: "(max-width: 479px) 87vw, (max-width: 767px) 71vw, 27vw" %>
-            <p class="card-name">Fabian Heilemann</p>
-            <p class="paragraph">Partner Earlybird</p>
-          </div>
-        </a>
-        <a href="https://de.linkedin.com/in/fabian-heilemann" target="_blank" class="card w-inline-block">
-          <div>
-            <%= image_tag "gleb-tritus-min.jpg", alt: "Gleb Tritus", loading: "lazy", sizes: "(max-width: 479px) 87vw, (max-width: 767px) 71vw, 27vw" %>
-            <p class="card-name">Gleb Tritus</p>
-            <p class="paragraph">MD Lufthansa Innovation Hub</p>
-          </div>
-        </a>
-        <a href="https://de.linkedin.com/in/fabian-heilemann" target="_blank" class="card last-card w-inline-block">
-          <div>
-            <%= image_tag "Dan-Kreibich-min.jpg", alt: "Dan Kreibich", loading: "lazy", sizes: "(max-width: 479px) 87vw, (max-width: 767px) 71vw, 27vw" %>
-            <p class="card-name">Dan Kreibich</p>
-            <p class="paragraph">Founder Compensaid &amp; offsetAPI</p>
-          </div>
-        </a>
-      </div><img src="images/initiators_grid.svg" loading="lazy" style="opacity:0" data-w-id="e1b80a44-adfb-7897-0c62-648a3851842a" alt="" class="absolute-image initiated-top-margin">
-    </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="footer-container">
-    <div class="div-block-7">
-      <a href="index.html" aria-current="page" class="w-inline-block w--current"><img src="images/green_flight_club_logo_white.svg" loading="lazy" alt=""></a>
-      <div class="div-block-15">
-        <a href="imprint.html" class="footer-link">imprint</a>
-        <a href="data-privacy.html" class="footer-link">data privacy</a>
+  <div class="section">
+    <div class="container">
+      <div class="relative-block">
+        <h1 id="about" class="heading">About Green Flight Club</h1>
+        <p class="landing-page-paragraph">Sustainable Aviation Fuel is the obvious solution to reduce emissions of private flights. Getting hold of it isn’t.<br> <br>Green Flight Club buys Sustainable Aviation Fuel on your behalf, injects it into commercial opreation and by this reduces your emissions.  The SAF injection is handled by Lufthansa  Innovation Hub’s <a href="http://offset-api.com" target="_blank" class="link">offset-api.com</a>.</p>  <%= image_tag("about_grid.svg", :alt => "design grid", :loading => "lazy", :style => "opacity:0", :"data-w-id" => "21b7e4b7-d59c-ee6d-28a4-bb524b6efe0c", :class => "absolute-image") %>
       </div>
     </div>
   </div>
-</div>
+  <div class="section grey">
+    <div class="container">
+      <div class="relative-block">
+        <h1 id="initiators">Initiated by</h1>
+        <p class="landing-page-paragraph">We believe that there are dozens of practical ways to create a sustainable future. Together we initiated one of those. If you have questions about it, write us under <a href="mailto:contact@green-flight-club.com" class="link">contact@green-flight-club.com</a>.</p>
+        <div class="cards-box">
+          <a href="https://de.linkedin.com/in/fabian-heilemann" target="_blank" class="card first-card w-inline-block">
+            <div>
+              <%= image_tag("Fabian-Heilemann-min.jpg", :alt => "Image Fabian Heilemann", :sizes => "(max-width: 479px) 87vw, (max-width: 767px) 71vw, 28vw", :loading =>"lazy") %>
+              <p class="card-name">Fabian Heilemann</p>
+              <p class="paragraph">Partner Earlybird</p>
+            </div>
+          </a>
+          <a href="https://de.linkedin.com/in/fabian-heilemann" target="_blank" class="card w-inline-block">
+            <div>
+              <%= image_tag("gleb-tritus-min.jpg", :alt => "Image Gleb Tritus", :sizes => "(max-width: 479px) 87vw, (max-width: 767px) 71vw, 28vw", :loading =>"lazy") %>
+              <p class="card-name">Gleb Tritus</p>
+              <p class="paragraph">MD Lufthansa Innovation Hub</p>
+            </div>
+          </a>
+          <a href="https://de.linkedin.com/in/fabian-heilemann" target="_blank" class="card last-card w-inline-block">
+            <div>
+              <%= image_tag("Dan-Kreibich-min.jpg", :alt => "Image Dan Kreibich", :sizes => "(max-width: 479px) 87vw, (max-width: 767px) 71vw, 28vw", :loading =>"lazy") %>
+              <p class="card-name">Dan Kreibich</p>
+              <p class="paragraph">Founder Compensaid &amp; offsetAPI</p>
+            </div>
+          </a>
+        </div> <%= image_tag("initiators_grid.svg", :alt => "design grid", :loading =>"lazy", :style => "opacity:0", :"data-w-id" => "e1b80a44-adfb-7897-0c62-648a3851842a", :class => "absolute-image initiated-top-margin") %>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
