@@ -7,3 +7,70 @@
   <%= f.submit 'submit' %>
 <% end %>
 
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Sun Jan 10 2021 15:00:13 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="5fedef869348a77f0715cde9" data-wf-site="5fec50b7d93f2346f2ba4485">
+<body class="body grey-background">
+  <div class="calculator-section">
+    <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navbar w-nav">
+      <div class="container-navbar w-container">
+        <a href="index.html" target="_blank" class="brand-2 w-nav-brand"><img src="images/green_flight_club_logo_grey.svg" loading="lazy" alt="" class="image-2"></a>
+        <nav role="navigation" class="nav-menu w-nav-menu">
+          <a href="index.html" target="_blank" class="nav-link grey w-nav-link">About</a>
+          <a href="index.html" target="_blank" class="nav-link grey w-nav-link">Initiators</a>
+          <a href="#" class="nav-link right-navbar-link grey w-nav-link">Offset Calculator</a>
+        </nav>
+        <div class="menu-button-2 w-nav-button">
+          <div class="w-icon-nav-menu"></div>
+        </div>
+      </div>
+    </div>
+    <div class="calculator-container">
+      <div class="calculator-base-block">
+        <div class="content-block">
+          <p data-w-id="e10a75a2-01b3-e6ac-5dec-0848813a7bc1" style="opacity:0" class="pre-heading">1/3</p>
+          <h1 class="calculator-heading">Calculate emissions of your last flight(s)</h1>
+          <p>Simply enter the fuel type and the amount burned.</p>
+
+          <div class="w-form">
+            <%= simple_form_for(@calculation) do |f| %>
+              <%= f.input :fuel_type, collection: $fuel_type_list, prompt: 'Select fuel type' %>
+              <%= f.input :weight_in_kg %>
+              <%= f.submit 'submit' %>
+            <% end %>
+            <div class="w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+
+
+
+
+          <div class="w-form">
+            <form id="email-form" name="email-form" data-name="Email Form" redirect="/result" data-redirect="/result" class="form"><select id="fuel_type" name="fuel_type" required="" data-name="fuel_type" class="select-field w-select">
+                <option value="Another Choice">Fuel Type</option>
+                <option value="">Jet A1</option>
+                <option value="">Jet B</option>
+                <option value="">Avgas</option>
+              </select>
+              <div class="div-block-8">
+                <div class="div-block-9"></div>
+              </div><input type="number" class="text-field w-input" maxlength="256" name="amount" data-name="amount" placeholder="Kg" id="amount"><input type="submit" value="Next" data-wait="Please wait..." class="submit-button w-button">
+            </form>
+            <div class="w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+        </div><img src="images/calculation_grid.svg" loading="lazy" style="opacity:0" data-w-id="160e9f5e-aaed-baae-3256-3dd9bf29ed30" alt="" class="absolute-image">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
