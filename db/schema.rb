@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2021_01_07_213310) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "calculations", force: :cascade do |t|
     t.string "fuel_type"
     t.integer "weight_in_kg"
     t.float "CO2_in_kg"
     t.float "SAF_in_kg"
     t.float "SAF_price_in_EUR"
-    t.integer "compensation_id"
+    t.bigint "compensation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "offsetAPI_id"
