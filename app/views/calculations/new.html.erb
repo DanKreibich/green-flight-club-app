@@ -1,12 +1,3 @@
-<h1>Calculations#new</h1>
-<p>Find me in app/views/calculations/new.html.erb</p>
-<%= simple_form_for(@calculation) do |f| %>
-
-  <%= f.input :fuel_type, collection: $fuel_type_list, prompt: 'Select fuel type' %>
-  <%= f.input :weight_in_kg %>
-  <%= f.submit 'submit' %>
-<% end %>
-
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
 <!--  Last Published: Sun Jan 10 2021 15:00:13 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="5fedef869348a77f0715cde9" data-wf-site="5fec50b7d93f2346f2ba4485">
@@ -32,42 +23,25 @@
           <h1 class="calculator-heading">Calculate emissions of your last flight(s)</h1>
           <p>Simply enter the fuel type and the amount burned.</p>
 
+          <!-- Calculation Form -->
           <div class="w-form">
             <%= simple_form_for(@calculation) do |f| %>
-              <%= f.input :fuel_type, collection: $fuel_type_list, prompt: 'Select fuel type' %>
-              <%= f.input :weight_in_kg %>
-              <%= f.submit 'submit' %>
+              <div class="form">
+                <%= f.input :fuel_type, collection: $fuel_type_list, prompt: 'Fuel type', label: false, input_html: { class: "select-field w-select" } %>
+
+                <!-- visual dividing element -->
+                <div class="div-block-8">
+                  <div class="div-block-9"></div>
+                </div>
+
+                <%= f.input :weight_in_kg, placeholder: "Kg",label: false, input_html: { class: "text-field w-input" } %>
+                <%= f.submit 'Next', class: "submit-button w-button" %>
+              </div>
             <% end %>
-            <div class="w-form-done">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
           </div>
 
-
-
-
-          <div class="w-form">
-            <form id="email-form" name="email-form" data-name="Email Form" redirect="/result" data-redirect="/result" class="form"><select id="fuel_type" name="fuel_type" required="" data-name="fuel_type" class="select-field w-select">
-                <option value="Another Choice">Fuel Type</option>
-                <option value="">Jet A1</option>
-                <option value="">Jet B</option>
-                <option value="">Avgas</option>
-              </select>
-              <div class="div-block-8">
-                <div class="div-block-9"></div>
-              </div><input type="number" class="text-field w-input" maxlength="256" name="amount" data-name="amount" placeholder="Kg" id="amount"><input type="submit" value="Next" data-wait="Please wait..." class="submit-button w-button">
-            </form>
-            <div class="w-form-done">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
-          </div>
-        </div><img src="images/calculation_grid.svg" loading="lazy" style="opacity:0" data-w-id="160e9f5e-aaed-baae-3256-3dd9bf29ed30" alt="" class="absolute-image">
+        </div>
+        <%= image_tag("calculation_grid.svg", loading: "lazy", alt: "animated grid", class: "absolute-image", "data-w-id": "160e9f5e-aaed-baae-3256-3dd9bf29ed30") %>
       </div>
     </div>
   </div>
