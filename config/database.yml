@@ -36,3 +36,8 @@ development:
 test:
   <<: *default
   database: green-flight-club_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
