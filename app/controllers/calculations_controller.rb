@@ -20,8 +20,11 @@ class CalculationsController < ApplicationController
     @fuel_type = params[:calculation][:fuel_type]
     @weight = params[:calculation][:weight_in_kg].to_i
 
-    # calculate emissions
-    @co2 = $emissions_list["#{@fuel_type}"] * @weight
+    # get emissions factor for frontend
+    @emissions_factor = $emissions_list["#{@fuel_type}"]
+
+    # calculate emissions and round for two decimals
+    @co2 = ($emissions_list["#{@fuel_type}"] * @weight).round(2)
 
     # get the offsetAPI_id and the SAF price
     offsetAPI_info = request_id_and_price((@co2 * 1000).to_i)
@@ -29,7 +32,8 @@ class CalculationsController < ApplicationController
     @price = offsetAPI_info[:price]
 
     # Calculate SAF weight: 3,15 * 0,8 --> 1kg SAF saves 2,52kg CO2
-    @SAF_weight = @co2 / 2.52
+    # rounds  for two decimals
+    @SAF_weight = (@co2 / 2.52).round(2)
 
     # Save the object
     @calculation = Calculation.new(

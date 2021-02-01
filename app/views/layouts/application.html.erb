@@ -20,6 +20,10 @@
   </head>
 
   <body>
+    <!-- show light navbar if not defined differently -->
+    <% if @navbar_dark.nil? %>
+      <%= render 'shared/navbar_dark' %>
+    <% end %>
 
     <%= yield %>
     <!-- Footer Section -->
