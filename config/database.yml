@@ -37,6 +37,7 @@ test:
   <<: *default
   database: green-flight-club_test
 
+# added in order to have a working DB on Heroku
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>

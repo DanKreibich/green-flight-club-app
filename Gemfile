@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Manually added gems
 gem 'simple_form'
+
+# payment
+gem 'stripe'
