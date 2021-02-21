@@ -1,1 +1,223 @@
-new.html.erb
+  <!--
+    To Do:
+    1. Connect the form to the compensations object => Change form type to simple form
+    2. Add Stripe payment details to the form
+    3. Trigger "Create method" in controller to save instance and trigger Stripe payment intent maybe separately
+
+   -->
+
+
+  <div style="opacity:0" class="background-blur">
+    <div class="infobox">
+      <h1>Operational Fees</h1>
+      <p>Besides maintaining the services, e.g. website development, customer request, etc., transactional costs need to be covered. Green Flight Club retains:<br><br>Stripe credit card payment fees: 0,25€ + 2,9%<br><br>Green Flight Club contribution: 5%</p>
+      <a data-w-id="8734720a-6754-fe1f-859d-3474ca4c255a" href="#" class="link-block-2 w-inline-block">
+        <p class="link">x</p>
+      </a>
+    </div>
+  </div>
+  <div class="calculator-section">
+    <div class="calculator-container">
+      <div class="calculator-base-block">
+        <div class="content-block">
+
+          <!-- SUMMARY <SECTION></SECTION> -->
+          <p data-w-id="e10a75a2-01b3-e6ac-5dec-0848813a7bc1" style="opacity:0" class="pre-heading">3/3</p>
+          <h1 class="calculator-heading">Purchase SAF and share the word</h1>
+          <div class="summary">
+            <p><strong>Summary</strong></p>
+            <div class="summary-item">
+              <div>
+                <p>Reduce <%= @calculation.CO2_in_kg %>kg CO2 emissions through <%= @calculation.SAF_in_kg %> kg of SAF</p>
+              </div>
+              <div>
+                <p><%= @calculation.SAF_price_in_EUR %>€</p>
+              </div>
+            </div>
+            <div class="summary-item">
+              <div>
+                <p>Green Flight Club Operational Fees <a href="#" data-w-id="227d1ff8-50df-a9a6-3df1-11f3958c87ef" class="link">(i)</a>
+                </p>
+              </div>
+              <div>
+                <p><%= @GFC_operational_fee_in_EUR %>€</p>
+              </div>
+            </div>
+            <div class="summary-item">
+              <div>
+                <p><strong>Total amount</strong></p>
+              </div>
+              <div>
+                <p><strong><%= @total_payable_price_in_EUR %>€</strong></p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- PERSONAL DETAILS FORM -->
+
+
+          <div class="w-form">
+            <%= simple_form_for(@compensation) do |f| %>
+              <div class="form">
+                <%= f.input :full_name, prompt: 'Fuel type', label: false, input_html: { class: "select-field w-select" } %>
+                <%= f.submit 'Next', class: "submit-button w-button" %>
+              </div>
+            <% end %>
+          </div>
+
+
+
+          <div class="w-form">
+            <p class="paragraph-3"><strong>Personal Data</strong></p>
+            <form id="email-form" name="email-form" data-name="Email Form">
+              <input type="text" class="input-field w-input" maxlength="256" name="name" data-name="Name" placeholder="Full name" id="name">
+              <input type="email" class="input-field w-input" maxlength="256" name="email" data-name="Email" placeholder="Email" id="email" required="">
+              <input type="text" class="input-field w-input" maxlength="256" name="Street-2" data-name="Street 2" placeholder="Street + no." id="Street-2" required="">
+              <div class="small-field-block"><input type="text" class="input-field-small w-input" maxlength="256" name="Zip-2" data-name="Zip 2" placeholder="ZIP code" id="Zip-2" required="">
+                <input type="text" class="input-field-small w-input" maxlength="256" name="city-2" data-name="City 2" placeholder="City" id="city-2" required=""></div>
+                <input type="text" class="input-field w-input" maxlength="256" name="country" data-name="country" placeholder="Country" id="country" required="">
+              <p class="paragraph-3"><strong>Payment</strong></p>
+              <input type="number" class="input-field w-input" maxlength="256" name="credit-card-number" data-name="credit card number" placeholder="Credit card number" id="credit-card-number" required="">
+              <div class="small-field-block">
+                <input type="text" class="input-field-small w-input" maxlength="256" name="Expiry" data-name="Expiry" placeholder="MM/YY" id="Expiry" required="">
+                <input type="number" class="input-field-small w-input" maxlength="256" name="CVC" data-name="CVC" placeholder="CVC" id="CVC" required=""></div>
+                <label class="w-checkbox checkbox-field"><input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" class="w-checkbox-input checkbox"><span class="checkbox-label w-form-label">I have read the <a href="#" class="link">Terms &amp; Conditions</a> and agree to them</span></label>
+                <label class="w-checkbox checkbox-field"><input type="checkbox" id="checkbox-2" name="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input checkbox"><span class="checkbox-label w-form-label">I&#x27;d like to receive news occasionally</span></label>
+                <input type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button">
+            </form>
+            <div class="w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+        </div><img src="images/calculation_grid.svg" loading="lazy" style="opacity:0" data-w-id="160e9f5e-aaed-baae-3256-3dd9bf29ed30" alt="" class="absolute-image">
+      </div>
+    </div>
+  </div>
+
+  <form id='payment-form'> <!-- added by fried -->
+    <input id="card-name" type="text">
+    <!-- placeholder for Elements -->
+    <div id="card-element"></div>
+    <button id="card-button" data-secret="<%= @intent.client_secret %>">Submit Payment</button>
+  </form>
+
+
+
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5fec50b7d93f2346f2ba4485" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
+
+
+
+
+
+<!-- This is Fried's version-->
+ <!-- <form id='payment-form'>
+  <input id="card-name" type="text">
+  <div id="card-element"></div>
+  <button id="card-button" data-secret="<%= @intent.client_secret %>">Submit Payment</button>
+</form> -->
+
+
+<!-- TODO : Understand why the client secret is not there and understand how the payment needs to go through -->
+
+<%= javascript_tag do -%>
+  var stripe = Stripe("pk_test_51IGI32ETVrBvZbxgccNZoMO0ceYfQ6mKZvuSQrFhpWW5z4J99x5jtM1ztwB89gbdmhqR9WoV0Nx4XWbtXX1PGhvo00o9WwtJHU");
+  var elements = stripe.elements();
+  var card = elements.create("card");
+  card.mount("#card-element");
+
+  var form = document.getElementById('payment-form');
+  var button = document.getElementById('card-button');
+
+  form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    button.disabled = true; // added to prevent two clicks
+    stripe.confirmCardPayment(button.dataset.secret, { // changed by Fried due to key location
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: 'Jenny Rosen'
+        }
+      }
+    }).then(function(result) {
+      if (result.error) {
+        // Show error to your customer (e.g., insufficient funds)
+        console.log(result.error.message);
+      } else {
+        // The payment has been processed!
+        if (result.paymentIntent.status === 'succeeded') {
+          // Show a success message to your customer
+          // There's a risk of the customer closing the window before callback
+          // execution. Set up a webhook or plugin to listen for the
+          // payment_intent.succeeded event that handles any business critical
+          // post-payment actions.
+        }
+      }
+    });
+  });
+<% end -%>
+
+<!--
+
+<%= javascript_tag do -%>
+
+  var stripe = Stripe("pk_test_51IGI32ETVrBvZbxgccNZoMO0ceYfQ6mKZvuSQrFhpWW5z4J99x5jtM1ztwB89gbdmhqR9WoV0Nx4XWbtXX1PGhvo00o9WwtJHU");
+  var elements = stripe.elements();
+  var card = elements.create("card");
+  card.mount("#card-element");
+
+  var form = document.getElementById('payment-form');
+
+  var button = document.getElementById('card-button';
+
+  form.addEventListener('submit', function(ev) {
+    console.log('button click is working')
+    ev.preventDefault();
+    button.disabled = true;
+    stripe.confirmCardPayment(button).dataset.secret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: 'Jenny Rosen'
+        }
+      }
+    }).then(function(result) {
+      console.log(result)
+      if (result.error) {
+        // Show error to your customer (e.g., insufficient funds)
+        console.log(result.error.message);
+      } else {
+        // The payment has been processed!
+        if (result.paymentIntent.status === 'succeeded') {
+          // Show a success message to your customer
+          // There's a risk of the customer closing the window before callback
+          // execution. Set up a webhook or plugin to listen for the
+          // payment_intent.succeeded event that handles any business critical
+          // post-payment actions.
+        }
+      }
+    });
+  });
+
+<% end -%>
+
+
+ -->
+
+
+
+
+
+<!-- CHECK how to get confirmation by Stripe via webhook if payment successful -->
+<!-- Run tests from Stripe test card -->
+<!-- to create credentials instead "vim" use "stt" -->
+<!-- master key hinzufügen -->
+
+
